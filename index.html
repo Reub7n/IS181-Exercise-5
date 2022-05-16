@@ -72,12 +72,13 @@ input[type="submit"]{
    let result=document.getElementById('result');
 if(result.value.includes('(')){
 const arr = result.value.split('(');
+const deg = (+arr[1] * Math.PI)/180;
 if(arr[0] == 'tan'){
-return result.value = Math.tan(+arr[1]);
+return result.value = Math.tan(deg);
 }else if(arr[0] == 'sin'){
-return result.value = Math.sin(+arr[1]);
+return result.value = Math.sin(deg);
 }else{
-return result.value = Math.cos(+arr[1]);
+return result.value = Math.cos(deg);
 }
   return result.value=eval(result);
  }}
