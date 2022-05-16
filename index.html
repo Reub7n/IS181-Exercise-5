@@ -29,9 +29,9 @@ input[type="submit"]{
    </tr> 
      <tr> 
       <td><input type="button" value="AC" onclick="clr()"></td> 
-      <td><input type="button" value="tan" onclick="tan()"></td> 
-      <td> <input type="button" value="cos" onclick="cos()"></td> 
-      <td> <input type="button" value="sin" onclick="sin()"></td> 
+      <td><input type="button" value="tan" onclick="trig('tan')"></td> 
+      <td> <input type="button" value="cos" onclick="trig('cos')"></td> 
+      <td> <input type="button" value="sin" onclick="trig('sin')"></td> 
      </tr> 
      <tr> 
       <td><input type="button" value="%" onclick="disp('%')"></td> 
@@ -69,25 +69,26 @@ input[type="submit"]{
  document.getElementById('result').value+=val;
  }
  function cal(){
-   let resut=document.getElementById('result');
-   resut.value=eval(resut.value);
+   let result=document.getElementById('result');
+if(result.value.includes('(')){
+const arr = result.value.split('(');
+if(arr[0] == 'tan'){
+return result.value = Math.tan(+arr[1]);
+}else if(arr[0] == 'sin'){
+return result.value = Math.sin(+arr[1]);
+}else{
+return result.value = Math.cos(+arr[1]);
+}
+  return result.value=eval(result);
  }
  function clr(){
-   let resut=document.getElementById('result');
-   resut.value=" ";
+   let result=document.getElementById('result');
+   result.value=" ";
  }
- function tan(){
-   let resut=document.getElementById('result');
-   resut.value=Math.tan(resut.value);
- }
- function cos(){
-   let resut=document.getElementById('result');
-   resut.value=Math.cos(resut.value);
- }
- function sin(){
-   let resut=document.getElementById('result');
-   resut.value=Math.sin(resut.value);
- }
+function trig(inp){
+let result=document.getElementById('result');
+result.value=inp + "(";
+}
  </script>   
  </body>
 </html>
